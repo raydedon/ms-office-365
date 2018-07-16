@@ -5,14 +5,14 @@
 
 module.exports = {
   creds: {
-    redirectUrl: 'http://localhost:3000/token',
-    clientID: '2e47969b-f3a1-4cec-b5bf-648748d32c35',
-    clientSecret: '',
-    identityMetadata: 'https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration',
+    redirectUrl: 'http://localhost:3000/login',
+    clientID: '3f700195-da8a-4a32-87e2-2620a92cad20',
+    clientSecret: 'bxwuLT_~rniUXPJS33804@]',
+    identityMetadata: 'https://login.microsoftonline.com/48d31ece-65b2-4a6f-979d-358c6eb66388/v2.0/.well-known/openid-configuration',
     allowHttpForRedirectUrl: true, // For development only
     responseType: 'code',
     validateIssuer: false, // For development only
     responseMode: 'query',
-    scope: ['User.Read', 'Mail.Send', 'Files.ReadWrite']
+    scope: ['offline_access', 'User.Read.All', 'Group.Read.All', 'Group.ReadWrite.All']
   }
 };

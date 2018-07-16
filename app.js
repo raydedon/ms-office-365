@@ -31,6 +31,9 @@ const app = express();
 
 // authentication setup
 const callback = (iss, sub, profile, accessToken, refreshToken, done) => {
+  console.info(`profile: ${JSON.stringify(profile)}
+  accessToken: ${accessToken}
+  refreshToken: ${refreshToken}`);
   done(null, {
     profile,
     accessToken,
