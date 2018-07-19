@@ -57,7 +57,8 @@ router.get('/token',
 function renderSendMail(req, res) {
 	res.render('sendMail', {
 		display_name: req.user.profile.displayName,
-		email_address: req.user.profile.emails && req.user.profile.emails[0].address
+		email_address: req.user.profile.emails && req.user.profile.emails[0].address,
+		accesstoken: req.user.accessToken
 	});
 }
 
@@ -120,7 +121,7 @@ router.post('/sendMail', (req, res) => {
 	const response = res;
 	const templateData = {
 		display_name: req.user.profile.displayName,
-		email_address: req.user.profile.emails[0].address,
+		email_address: req.user.profile.emails && req.user.profile.emails[0].address,
 		actual_recipient: req.body.default_email
 	};
 	prepForEmailMessage(req, (errMailBody, mailBody) => {
@@ -146,6 +147,13 @@ router.get('/disconnect', (req, res) => {
 		res.redirect('/');
 	});
 });
+
+router.get('/teams', (req, res) => {
+	graphHelper.fetchTeams(req.user.accessToken, (teams) => {
+		res.json({teams: teams});
+	});
+});
+
 
 // helpers
 function hasAccessTokenExpired(e) {

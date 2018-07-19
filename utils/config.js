@@ -13,6 +13,6 @@ module.exports = {
     responseType: 'code',
     validateIssuer: false, // For development only
     responseMode: 'query',
-    scope: ['offline_access', 'User.Read.All', 'Group.Read.All', 'Group.ReadWrite.All']
+    scope: ['offline_access', 'User.Read', 'User.ReadBasic.All', 'User.Read.All', 'User.ReadWrite', 'User.ReadWrite.All', 'Group.Read.All', 'Group.ReadWrite.All', 'Contacts.Read', 'Contacts.ReadWrite']
   }
 };

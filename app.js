@@ -14,7 +14,7 @@ const routes = require('./routes/index');
 const passport = require('passport');
 const OIDCStrategy = require('passport-azure-ad').OIDCStrategy;
 const uuid = require('uuid');
-const config = require('./utils/config.js');
+const config = require('./utils/prodConfig.js');
 
 const app = express();
 
